@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "75010989789",
+    "project_id": "swiffy-paw-friends",
+    "storage_bucket": "swiffy-paw-friends.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:75010989789:android:33e76cb39a74e70b890534",
+        "android_client_info": {
+          "package_name": "com.example.paw_friends_web"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD3cc4CTER2EaojI4FKFWibtnqT3rE-T2A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

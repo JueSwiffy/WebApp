@@ -1,0 +1,49 @@
+{
+  "flutter": {
+    "platforms": {
+      "android": {
+        "default": {
+          "projectId": "swiffy-paw-friends",
+          "appId": "1:75010989789:android:33e76cb39a74e70b890534",
+          "fileOutput": "android/app/google-services.json"
+        }
+      },
+      "ios": {
+        "default": {
+          "projectId": "swiffy-paw-friends",
+          "appId": "1:75010989789:ios:9471e31d9351bfec890534",
+          "uploadDebugSymbols": false,
+          "fileOutput": "ios/Runner/GoogleService-Info.plist"
+        }
+      },
+      "macos": {
+        "default": {
+          "projectId": "swiffy-paw-friends",
+          "appId": "1:75010989789:ios:9471e31d9351bfec890534",
+          "uploadDebugSymbols": false,
+          "fileOutput": "macos/Runner/GoogleService-Info.plist"
+        }
+      },
+      "dart": {
+        "lib/firebase_options.dart": {
+          "projectId": "swiffy-paw-friends",
+          "configurations": {
+            "android": "1:75010989789:android:33e76cb39a74e70b890534",
+            "ios": "1:75010989789:ios:9471e31d9351bfec890534",
+            "macos": "1:75010989789:ios:9471e31d9351bfec890534",
+            "web": "1:75010989789:web:fe901b63a96d21c1890534",
+            "windows": "1:75010989789:web:d97310f6264fd154890534"
+          }
+        }
+      }
+    }
+  },
+  "hosting": {
+    "public": "build/web",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ]
+  }
+}
