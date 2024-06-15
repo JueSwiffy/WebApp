@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/cupertino.dart';
 
 class AnswerProvider extends ChangeNotifier {
@@ -424,6 +426,39 @@ class AnswerProvider extends ChangeNotifier {
         answerExtra: "이렇게 준비하고 접근하면, 가족이 당신의 진지한 의지를 이해하고 긍정적으로 검토해 줄 가능성이 높아질 것입니다. 화이팅!")
   ];
 
+  List<String> displayedData = [];
+  List<String> queuedData = [];
+
+  bool isGeneratingFinished = false;
+
+  double opacityLevel = 1.0;
+
+  void addAnswerContent(List<String> contents) {
+    displayedData = [];
+    queuedData.addAll(contents);
+    notifyListeners();
+    _displayNextItem();
+  }
+
+  void _displayNextItem() async {
+    if (queuedData.isNotEmpty) {
+      final random = Random();
+      int randomNumber = random.nextInt(3) + 1;
+      print("Random number: $randomNumber");
+      await Future.delayed(Duration(seconds: randomNumber)); // Delay of 1 second between items
+      displayedData.add(queuedData.removeAt(0));
+      notifyListeners();
+      if (queuedData.isNotEmpty) {
+        _displayNextItem(); // Continue to display next item
+      } else {
+        await Future.delayed(Duration(seconds: 7));
+        isGeneratingFinished = true;
+        // opacityLevel == 0 ? opacityLevel = 1 : opacityLevel = 0;
+        notifyListeners();
+      }
+    }
+  }
+
   String _answer = '';
 
   String get answer => _answer;
@@ -452,6 +487,21 @@ class AnswerProvider extends ChangeNotifier {
   set setIsSubmitted(bool value) {
     isSubmitted = value;
     notifyListeners();
+    if (value) {
+      // Start displaying the selected answer's contents
+      addAnswerContent([
+        answerList[selectedItem].answerSummary,
+        ...answerList[selectedItem]
+            .answerContents
+            .expand((section) => [
+                  section['title'],
+                  if (section['summary'].isNotEmpty) section['summary'],
+                  ...section['contents'].expand((content) => [content['subtitle'], ...content['content']])
+                ])
+            .map((item) => item.toString()),
+        answerList[selectedItem].answerExtra
+      ]);
+    }
   }
 }
 
