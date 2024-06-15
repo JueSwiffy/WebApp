@@ -1,8 +1,8 @@
 import 'package:go_router/go_router.dart';
 import 'package:paw_friends_web/configurations/go_router/route_names.dart';
 
-import '../../adapter/in/camera/camera_controller_view.dart';
-import '../../adapter/in/main/main_application.dart';
+import '../../adapter/presentation//camera/camera_controller_view.dart';
+import '../../adapter/presentation/main/main_application.dart';
 
 class RouteConfig {
   // Private constructor to prevent instantiation
@@ -20,7 +20,8 @@ class RouteConfig {
     routes: [
       GoRoute(
         path: RouteNames.mainApplication,
-        builder: (_, state) => MainApplication(title: "Flutter Demo Home Page"),
+        builder: (_, state) =>
+            const MainApplication(title: 'LINK AI Swiffy Wiki'),
         routes: [
           GoRoute(
             path: RouteNames.camera,
